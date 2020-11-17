@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Alert } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessages, setErrorMessages] = useState([]);
+  const history = useHistory();
 
   const validateForm = () => {
     let errMessages = [];
@@ -20,6 +22,10 @@ const LoginForm = () => {
     }
 
     setErrorMessages(errMessages);
+
+    if (!errMessages.length) {
+      history.push("/");
+    }
   };
 
   const hideErrorMessages = () => {
@@ -27,7 +33,7 @@ const LoginForm = () => {
   };
 
   return (
-    <Form>
+    <Form className={"mt-4"}>
       {errorMessages.length > 0 && (
         <Alert variant="danger">
           {errorMessages.map((errorMessage) => (

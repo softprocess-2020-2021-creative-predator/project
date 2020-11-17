@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Alert } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 
 const RegisterForm = () => {
   const [email, setEmail] = useState("");
@@ -9,6 +10,7 @@ const RegisterForm = () => {
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessages, setErrorMessages] = useState([]);
+  const history = useHistory();
 
   const validateForm = () => {
     let errMessages = [];
@@ -30,6 +32,10 @@ const RegisterForm = () => {
     }
 
     setErrorMessages(errMessages);
+
+    if (!errMessages.length) {
+      history.push("/login");
+    }
   };
 
   const hideErrorMessages = () => {
@@ -37,7 +43,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <Form>
+    <Form className={"mt-4"}>
       {errorMessages.length > 0 && (
         <Alert variant="danger">
           {errorMessages.map((errorMessage) => (
