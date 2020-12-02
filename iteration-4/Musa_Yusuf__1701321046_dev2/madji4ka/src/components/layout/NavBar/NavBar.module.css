@@ -1,0 +1,30 @@
+.navbar{
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+	background-color: mediumpurple;
+}
+.title{
+	color: darkslategrey;
+	font-size: 23px;
+	line-height: 1.6;
+	text-decoration: none;
+	margin-right: 10px;
+}
+.buttonContainer{
+    display: flex;
+    /* margin-left: auto; */
+    margin-right: 25px;
+}
+.login{
+    margin-right: 5px;
+    padding: 9px;
+    color: black;
+}
+.register{
+    padding: 9px;
+    color: black;
+}
+.feeds{
+	margin: 5px;
+    padding: 9px;
+    color: black;
+}
